@@ -241,7 +241,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if(GPIO_Pin == Button_Pin){
 		HAL_TIM_Base_Start_IT(&htim2);
 		flag++;
-		if(flag == 2){
+		if(flag == 2){          //Stop blinking the LED if button Pressed Twice!
 			HAL_TIM_Base_Stop_IT(&htim2);
 			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 			flag =0;
